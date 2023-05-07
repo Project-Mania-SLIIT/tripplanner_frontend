@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
           <div className="d-flex align-items-center">
             <a className="text-reset me-3" href="login">
-              <i class="fas fa-arrow-right-to-bracket"></i>
+              <i className="fas fa-arrow-right-to-bracket"></i>
             </a>
             <div className="dropdown">
               <a

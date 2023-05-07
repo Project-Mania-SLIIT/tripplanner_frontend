@@ -8,6 +8,7 @@ import Home from "./pages/user/home";
 import Hotel from "./pages/user/hotel";
 import Packages from "./pages/user/package";
 import Place from "./pages/user/place";
+import Hoteladmin from "./pages/admin/pages/hotel";
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
           <Route exact path="/seller">
             <Route exact path="/seller/*" element={<DashboardContent />} />
           </Route>
+          <Route exact path="/admin" element={<DashboardContent />}>
+          </Route>
           <Route exact path="/">
             <Route exact path="home" element={<Home />} />
-            <Route exact path="admin" element={<DashboardContent />} />
           </Route>
           <Route exact path="login" element={<Login />} />
 
@@ -29,6 +31,7 @@ function App() {
           <Route exact path="hotel" element={<Hotel />} />
           <Route exact path="package" element={<Packages />} />
           <Route exact path="place" element={<Place />} />
+          <Route exact path="hadmin" element={<Hoteladmin />} />
         </Routes>
       </Router>
     </div>

@@ -2,6 +2,16 @@ import React from "react";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
+import arugam from "../../../assets/images/arugam.jpg"
+import kingsbury from "../../../assets/images/kingsbury.jpg"
+import jetwing from "../../../assets/images/jetwing.jpg"
+import cinnamon from "../../../assets/images/cinnamon.jpg"
+import ramada from "../../../assets/images/ramada.jpg"
+import taj from "../../../assets/images/taj.jpg"
+import dalada from "../../../assets/images/dalada.jpg"
+import ninearch from "../../../assets/images/ninearch.jpg"
+import sigiriya from "../../../assets/images/sigiriya.jpg"
+import hikk from "../../../assets/images/hikk.jpg"
 import kohomba from "../../../assets/images/khomba-herbal-soap-original-70g.jpg"
 import sudantha from "../../../assets/images/link-sudantha_1.jpg"
 import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg"

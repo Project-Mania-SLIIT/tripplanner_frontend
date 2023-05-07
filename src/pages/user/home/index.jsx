@@ -14,11 +14,16 @@ import {
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
-import kohomba from "../../../assets/images/khomba-herbal-soap-original-70g.jpg"
-import sudantha from "../../../assets/images/link-sudantha_1.jpg"
-import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg"
-import fadna from "../../../assets/images/fadna.jpg"
-import natures from "../../../assets/images/nature-s-secrets-l.jpg"
+import arugam from "../../../assets/images/arugam.jpg"
+import kingsbury from "../../../assets/images/kingsbury.jpg"
+import jetwing from "../../../assets/images/jetwing.jpg"
+import cinnamon from "../../../assets/images/cinnamon.jpg"
+import ramada from "../../../assets/images/ramada.jpg"
+import taj from "../../../assets/images/taj.jpg"
+import dalada from "../../../assets/images/dalada.jpg"
+import ninearch from "../../../assets/images/ninearch.jpg"
+import sigiriya from "../../../assets/images/sigiriya.jpg"
+import hikk from "../../../assets/images/hikk.jpg"
 import cs1 from "../../../assets/images/carousel1.jpg"
 import cs2 from "../../../assets/images/carousel2.jpg"
 import cs3 from "../../../assets/images/carousel3.jpg"
@@ -71,12 +76,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={kohomba}
+                src={hikk}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Hikkaduwa package</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -88,12 +93,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={sudantha}
+                src={arugam}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Arugam Bay package</MDBCardTitle>
                 <MDBCardText>This is a short card.</MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -101,12 +106,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={baraka}
+                src={dalada}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Sri Dalada Maligawa Package</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content.
@@ -117,12 +122,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={fadna}
+                src={ninearch}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Nine Arch Bridge package</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -134,12 +139,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={natures}
+                src={sigiriya}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Sigiriya</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -162,12 +167,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={kohomba}
+                src={arugam}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Arugam Bay</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -179,12 +184,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={sudantha}
+                src={ninearch}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Nine Arch Bridge</MDBCardTitle>
                 <MDBCardText>This is a short card.</MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -192,12 +197,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={baraka}
+                src={sigiriya}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Sigiriya</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content.
@@ -208,12 +213,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={fadna}
+                src={dalada}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Sri Dalada Maligawa</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -225,12 +230,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={natures}
+                src={hikk}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Hikkaduwa</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -253,12 +258,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={kohomba}
+                src={kingsbury}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Kingsbury Hotel</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -270,12 +275,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={sudantha}
+                src={cinnamon}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Cinnamon Grand Hotel</MDBCardTitle>
                 <MDBCardText>This is a short card.</MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -283,12 +288,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={baraka}
+                src={jetwing}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Jetwing Lagoon Hotel</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content.
@@ -299,12 +304,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={fadna}
+                src={ramada}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Ramada Hotel</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
@@ -316,12 +321,12 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src={natures}
+                src={taj}
                 alt="..."
                 position="top"
               />
               <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
+                <MDBCardTitle>Taj Samudra Hotel</MDBCardTitle>
                 <MDBCardText>
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit

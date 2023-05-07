@@ -9,6 +9,7 @@ import Hotel from "./pages/user/hotel";
 import Packages from "./pages/user/package";
 import Place from "./pages/user/place";
 import Hoteladmin from "./pages/admin/pages/hotel";
+import Profile from "./pages/user/profile";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="package" element={<Packages />} />
           <Route exact path="place" element={<Place />} />
           <Route exact path="hadmin" element={<Hoteladmin />} />
+          <Route exact path="profile" element={<Profile />} />
         </Routes>
       </Router>
     </div>

@@ -4,4 +4,8 @@
     color: #1C4E80;
     height: 50px;
     font-style: italic;
+    margin: 0;
+  }
+  .nav-item{
+    margin: 0;
   }

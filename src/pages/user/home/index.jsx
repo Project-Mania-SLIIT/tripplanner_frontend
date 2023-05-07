@@ -27,6 +27,7 @@ import hikk from "../../../assets/images/hikk.jpg"
 import cs1 from "../../../assets/images/carousel1.jpg"
 import cs2 from "../../../assets/images/carousel2.jpg"
 import cs3 from "../../../assets/images/carousel3.jpg"
+import cs4 from "../../../assets/images/NAT.jpg"
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={1}
-            src={cs1}
+            src={cs4}
             alt="..."
           >
             <h5>First slide label</h5>

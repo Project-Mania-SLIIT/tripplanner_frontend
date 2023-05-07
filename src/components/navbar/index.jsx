@@ -19,7 +19,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="logo">Traveloo</div>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-2 mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="home">
                   Home
@@ -78,7 +78,7 @@ const Navbar = () => {
                 aria-labelledby="navbarDropdownMenuAvatar"
               >
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="profile">
                     User Profile
                   </a>
                 </li>

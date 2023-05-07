@@ -2,21 +2,9 @@ import React from "react";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
-import arugam from "../../../assets/images/arugam.jpg"
-import kingsbury from "../../../assets/images/kingsbury.jpg"
-import jetwing from "../../../assets/images/jetwing.jpg"
-import cinnamon from "../../../assets/images/cinnamon.jpg"
-import ramada from "../../../assets/images/ramada.jpg"
-import taj from "../../../assets/images/taj.jpg"
-import dalada from "../../../assets/images/dalada.jpg"
-import ninearch from "../../../assets/images/ninearch.jpg"
+
 import sigiriya from "../../../assets/images/sigiriya.jpg"
-import hikk from "../../../assets/images/hikk.jpg"
-import kohomba from "../../../assets/images/khomba-herbal-soap-original-70g.jpg";
-import sudantha from "../../../assets/images/link-sudantha_1.jpg";
-import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg";
-import fadna from "../../../assets/images/fadna.jpg";
-import natures from "../../../assets/images/nature-s-secrets-l.jpg";
+
 
 const place = () => {
   return (
@@ -87,7 +75,7 @@ const place = () => {
                       className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                       data-mdb-ripple-color="light"
                     >
-                      <img src={baraka} className="w-100" />
+                      <img src={sigiriya} className="w-100" />
                       <a href="single">
                         <div className="mask">
                           <div className="d-flex justify-content-start align-items-end h-100">
@@ -109,161 +97,16 @@ const place = () => {
                     <div className="card-body">
                       <a href className="text-reset">
                         <h5 className="card-title mb-2">
-                          Baraka Black Seed Oil
+                          Sigiriya Rock Fortress
                         </h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Oil</p>
+                        <p>Unesco World Heritage Site</p>
                       </a>
-                      <h6 className="mb-3 price">Rs.1000.00</h6>
+                      <h6 className="mb-3 price">Click Here For More Info</h6>
                     </div>
                   </div>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img src={sudantha} className="w-100" />
-                      <a href="#!">
-                        <div className="mask">
-                          <div className="d-flex justify-content-start align-items-end h-100">
-                            <h5>
-                              <span className="badge bg-primary ms-2">
-                                bestseller
-                              </span>
-                            </h5>
-                          </div>
-                        </div>
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">Link Sudantha</h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>Toothpaste</p>
-                      </a>
-                      <h6 className="mb-3 price">Rs.200.00</h6>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img src={kohomba} className="w-100" />
-                      <a href="#">
-                        {/* <div className="mask">
-                          <div className="d-flex justify-content-start align-items-end h-100">
-                            <h5>
-                              <span className="badge bg-dark ms-2">NEW</span>
-                            </h5>
-                          </div>
-                        </div> */}
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">Kohomba</h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>Soap</p>
-                      </a>
-                      <h6 className="mb-3 price">Rs.120.00</h6>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img src={fadna} className="w-100" />
-                      <a href="#!">
-                        <div className="mask">
-                          <div className="d-flex justify-content-start align-items-end h-100">
-                            <h5>
-                              <span className="badge sale-badge ms-2">
-                                -10%
-                              </span>
-                            </h5>
-                          </div>
-                        </div>
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">Fadna Herbal Tea</h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>Tea</p>
-                      </a>
-                      <h6 className="mb-3 price">Rs.800.00</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img src={natures} className="w-100" />
-                      <a href="#!">
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">
-                          Natures Secret Body Butter
-                        </h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>Cream</p>
-                      </a>
-                      <h6 className="mb-3 price">Rs.1200.00</h6>
-                    </div>
-                  </div>
-                </div>
+                </div>          
               </div>
             </div>
           </section>

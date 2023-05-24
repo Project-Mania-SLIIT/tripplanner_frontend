@@ -3,42 +3,28 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Form from "react-bootstrap/Form";
 
 export default function Register() {
   const [show, setShow] = useState(false);
-  const [isSeller, setIsSeller] = useState(false);
-  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
-    name: "",
-    address: "",
+    username: "",
     email: "",
-    contactNumber: "",
-    buisnessName: "",
-    website: "",
     password: "",
+    image: "",
+    role: "",
   });
 
   const validate = () => {
     let isValidate = true;
     const regexname = /^[a-zA-Z ]*$/;
     const regexemail = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-    const regexcontact = /^[0-9]{10}$/;
     const regexpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
-    const regexwebsite = /^(http|https):\/\/[^ "]+$/;
     if (!formData.name || !regexname.test(formData.name)) {
       isValidate = false;
       Swal.fire({
         title: "Error!",
         text: "Please enter a valid name.",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-    }
-    if (!formData.address) {
-      isValidate = false;
-      Swal.fire({
-        title: "Error!",
-        text: "Please enter a valid address.",
         icon: "error",
         confirmButtonText: "Ok",
       });
@@ -52,36 +38,6 @@ export default function Register() {
         confirmButtonText: "Ok",
       });
     }
-    if (!formData.contactNumber || !regexcontact.test(formData.contactNumber)) {
-      isValidate = false;
-      Swal.fire({
-        title: "Error!",
-        text: "Please enter a valid contact number.",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-    }
-    // if (!formData.buisnessName && isSeller) {
-    //   isValidate = false;
-    //   Swal.fire({
-    //     title: "Error!",
-    //     text: "Please enter a valid business name.",
-    //     icon: "error",
-    //     confirmButtonText: "Ok",
-    //   });
-    // }
-    // if (
-    //   !formData.website ||
-    //   (!regexwebsite.test(formData.website) && isSeller)
-    // ) {
-    //   isValidate = false;
-    //   Swal.fire({
-    //     title: "Error!",
-    //     text: "Please enter a valid website.",
-    //     icon: "error",
-    //     confirmButtonText: "Ok",
-    //   });
-    // }
     if (!formData.password || !regexpassword.test(formData.password)) {
       isValidate = false;
       Swal.fire({
@@ -109,7 +65,6 @@ export default function Register() {
             icon: "success",
             confirmButtonText: "Ok",
           });
-          // Clear form fields
         })
         .catch((err) => {
           Swal.fire({
@@ -126,42 +81,37 @@ export default function Register() {
   const handleShow = () => setShow(true);
 
   return (
-    <>
+    <div>
       <Button variant="light" onClick={handleShow}>
         Register
       </Button>
 
-      <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal size="m" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Register</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
             <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Name</label>
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">Upload Profile Picture</label>
+                <Form.Group controlId="formFile">
+                  <Form.Control type="file" />
+                </Form.Group>
+              </div>
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">Enter Username</label>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Name"
                   onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
+                    setFormData({ ...formData, username: e.target.value })
                   }
                 ></input>
               </div>
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Address</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Address"
-                  onChange={(e) =>
-                    setFormData({ ...formData, address: e.target.value })
-                  }
-                ></input>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">Enter Email</label>
                 <input
                   type="email"
                   class="form-control"
@@ -172,8 +122,8 @@ export default function Register() {
                   }
                 ></input>
               </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
+              <div class="form-group col-md-12">
+                <label for="inputPassword4">Enter Password</label>
                 <input
                   type="password"
                   class="form-control"
@@ -184,17 +134,15 @@ export default function Register() {
                   }
                 ></input>
               </div>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Contact Number</label>
-              <input
-                type="number"
-                class="form-control"
-                placeholder="Contact Number"
-                onChange={(e) =>
-                  setFormData({ ...formData, contactNumber: e.target.value })
-                }
-              ></input>
+              <div class="form-group col-md-12">
+                <label for="inputPassword4">Select Role</label>
+                <select class="form-select">
+                  <option value="user" selected>
+                    User
+                  </option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
             </div>
           </form>
         </Modal.Body>
@@ -207,6 +155,6 @@ export default function Register() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }

@@ -16,9 +16,7 @@ function App() {
       <Router>
         <Routes>
           {/* user routes */}
-          <Route exact path="/seller">
-            <Route exact path="/seller/*" element={<DashboardContent />} />
-          </Route>
+
           <Route exact path="/admin" element={<DashboardContent />}>
           </Route>
           <Route exact path="/">

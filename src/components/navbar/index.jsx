@@ -20,33 +20,33 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="logo">Traveloo </div>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+            <ul className="navbar-nav ms-2 me-auto mb-2 mb-lg-0">
+              <li>
                 <a className="nav-link" href="/home">
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              <li>
                 <a className="nav-link" href="/hotel">
                   Hotels
                 </a>
               </li>
-              <li className="nav-item">
+              <li>
                 <a className="nav-link" href="/package">
                   Packages
                 </a>
               </li>
-              <li className="nav-item">
+              <li>
                 <a className="nav-link" href="/place">
                   Places
                 </a>
               </li>
-              <li className="nav-item">
+              <li>
                 <a className="nav-link" href="/aboutUs">
                   About Us
                 </a>
               </li>
-              <li className="nav-item">
+              <li>
                 <a className="nav-link" href="/contactUs">
                   Contact Us
                 </a>

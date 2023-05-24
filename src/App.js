@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashboardContent from "./pages/admin/dashboardLayout";
 import ContactUs from "./pages/user/contactUs";
-import Login from "./pages/common/login";
 import AboutUs from "./pages/user/aboutUs";
 import Home from "./pages/user/home";
 import Hotel from "./pages/user/hotel";
@@ -25,7 +24,6 @@ function App() {
           <Route exact path="/">
             <Route exact path="home" element={<Home />} />
           </Route>
-          <Route exact path="login" element={<Login />} />
 
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />

@@ -14,7 +14,7 @@ const place = () => {
         <div className="container">
           <nav
             className="navbar navbar-expand-lg navbar-dark mt-3 mb-5 shadow p-2"
-            style={{ backgroundColor: "?1C4E80" }}
+            style={{ backgroundColor: "#689368" }}
           >
             <div className="container-fluid">
               <a className="navbar-brand" href="?">

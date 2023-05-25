@@ -2,16 +2,14 @@ import React from "react";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
-
-import sigiriya from "../../../assets/images/sigiriya.jpg"
-
+import sigiriya from "../../../assets/images/sigiriya.jpg";
 
 const place = () => {
   return (
     <div>
       <Navbar />
       <main>
-        <div className="container">
+        <div className="container mx-6 my-5">
           <nav
             className="navbar navbar-expand-lg navbar-dark mt-3 mb-5 shadow p-2"
             style={{ backgroundColor: "#689368" }}
@@ -86,7 +84,7 @@ const place = () => {
                       <h6 className="mb-3 price">Click Here For More Info</h6>
                     </div>
                   </div>
-                </div>          
+                </div>
               </div>
             </div>
           </section>

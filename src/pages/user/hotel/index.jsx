@@ -9,7 +9,7 @@ const hotel = () => {
     <div>
       <Navbar />
       <main>
-        <div className="container">
+        <div className="container mx-6 my-5">
           <nav
             className="navbar navbar-expand-lg navbar-dark mt-3 mb-5 shadow p-2"
             style={{ backgroundColor: "#689368" }}

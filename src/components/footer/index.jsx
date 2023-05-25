@@ -4,14 +4,14 @@ const Footer = () => {
     <div>
       <footer
         className="text-center text-white mt-4"
-        style={{ backgroundColor: "#1C4E80" }}
+        style={{ backgroundColor: "#689368" }}
       >
         <hr className="text-dark" />
-        <div className="container">
+        <div className="container ">
           <section className="mb-3">
             <a
               className="btn-link btn-floating btn-lg text-white"
-              href="#!"
+              href="https://web.facebook.com"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -19,7 +19,7 @@ const Footer = () => {
             </a>
             <a
               className="btn-link btn-floating btn-lg text-white"
-              href="#!"
+              href="https://www.twitter.com"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
             <a
               className="btn-link btn-floating btn-lg text-white"
-              href="#!"
+              href="https://www.google.com"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -35,7 +35,7 @@ const Footer = () => {
             </a>
             <a
               className="btn-link btn-floating btn-lg text-white"
-              href="#!"
+              href="https://www.instagram.com"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -43,7 +43,7 @@ const Footer = () => {
             </a>
             <a
               className="btn-link btn-floating btn-lg text-white"
-              href="#!"
+              href="https://www.linkedin.com"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -51,7 +51,7 @@ const Footer = () => {
             </a>
             <a
               className="btn-link btn-floating btn-lg text-white"
-              href="#!"
+              href="https://www.github.com"
               role="button"
               data-mdb-ripple-color="dark"
             >

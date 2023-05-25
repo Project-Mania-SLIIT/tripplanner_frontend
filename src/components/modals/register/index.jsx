@@ -11,7 +11,7 @@ export default function Register() {
     username: "",
     email: "",
     password: "",
-    image: "",
+    photo: "",
     role: "",
   });
 
@@ -20,7 +20,7 @@ export default function Register() {
     const regexname = /^[a-zA-Z ]*$/;
     const regexemail = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
     const regexpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
-    if (!formData.name || !regexname.test(formData.name)) {
+    if (!formData.username || !regexname.test(formData.username)) {
       isValidate = false;
       Swal.fire({
         title: "Error!",
@@ -51,14 +51,12 @@ export default function Register() {
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData);
     e.preventDefault();
     if (validate()) {
       await axios
-        .post("http://localhost:5002/user/register", {
-          formData,
-        })
+        .post("http://localhost:4000/api/v1/auth/register", formData)
         .then((res) => {
+          console.log(res);
           Swal.fire({
             title: "Success!",
             text: "Registration Successful",
@@ -67,9 +65,10 @@ export default function Register() {
           });
         })
         .catch((err) => {
+          console.log(err);
           Swal.fire({
             title: "Registration Failed!",
-            text: err.response.data,
+            text: err.response.data.message,
             icon: "error",
             confirmButtonText: "Ok",
           });
@@ -92,29 +91,34 @@ export default function Register() {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <div class="form-row">
-              <div class="form-group col-md-12">
+            <div className="form-row">
+              <div className="form-group col-md-12">
                 <label for="inputEmail4">Upload Profile Picture</label>
                 <Form.Group controlId="formFile">
-                  <Form.Control type="file" />
+                  <Form.Control
+                    onChange={(e) =>
+                      setFormData({ ...formData, photo: e.target.value })
+                    }
+                    type="file"
+                  />
                 </Form.Group>
               </div>
-              <div class="form-group col-md-12">
-                <label for="inputEmail4">Enter Username</label>
+              <div className="form-group col-md-12">
+                <label for="inputEmail4">Enter Name</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Name"
                   onChange={(e) =>
                     setFormData({ ...formData, username: e.target.value })
                   }
                 ></input>
               </div>
-              <div class="form-group col-md-12">
+              <div className="form-group col-md-12">
                 <label for="inputEmail4">Enter Email</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="inputEmail4"
                   placeholder="Email"
                   onChange={(e) =>
@@ -122,11 +126,11 @@ export default function Register() {
                   }
                 ></input>
               </div>
-              <div class="form-group col-md-12">
+              <div className="form-group col-md-12">
                 <label for="inputPassword4">Enter Password</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="inputPassword4"
                   placeholder="Password"
                   onChange={(e) =>
@@ -134,12 +138,16 @@ export default function Register() {
                   }
                 ></input>
               </div>
-              <div class="form-group col-md-12">
+              <div className="form-group col-md-12">
                 <label for="inputPassword4">Select Role</label>
-                <select class="form-select">
-                  <option value="user" selected>
-                    User
-                  </option>
+                <select
+                  className="form-select"
+                  onChange={(e) =>
+                    setFormData({ ...formData, role: e.target.value })
+                  }
+                >
+                  <option selected>Select A Role</option>
+                  <option value="user">User</option>
                   <option value="admin">Admin</option>
                 </select>
               </div>

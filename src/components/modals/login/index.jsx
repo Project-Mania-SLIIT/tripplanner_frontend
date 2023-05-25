@@ -35,14 +35,13 @@ export default function Login() {
     e.preventDefault();
     if (validate()) {
       await axios
-        .post("http://localhost:5002/user/login", {
-          formData,
-        })
+        .post("http://localhost:4000/api/v1/auth/login", formData)
         .then((res) => {
-          localStorage.setItem("user_id", res.data.user._id);
-          localStorage.setItem("type", res.data.user.type);
-          localStorage.setItem("name", res.data.user.name);
-          localStorage.setItem("email", res.data.user.email);
+          localStorage.setItem("username", res.data.data._id);
+          localStorage.setItem("username", res.data.data.username);
+          localStorage.setItem("email", res.data.data.email);
+          localStorage.setItem("role", res.data.role);
+          localStorage.setItem("photo", res.data.data.photo);
           localStorage.setItem("token", res.data.token);
           Swal.fire({
             title: "Success!",
@@ -50,10 +49,8 @@ export default function Login() {
             icon: "success",
             confirmButtonText: "Ok",
           }).then(() => {
-            if (res.data.user.type === "admin") {
-              window.location.href = "/seller/dashboard";
-            } else if (res.data.user.type === "supplier") {
-              window.location.href = "/seller/dashboard";
+            if (res.data.role === "admin") {
+              window.location.href = "/admin";
             } else {
               window.location.href = "/home";
             }
@@ -62,8 +59,8 @@ export default function Login() {
         .catch((err) => {
           Swal.fire({
             title: "Login Failed!",
-            text: err.response.data,
             icon: "error",
+            text: err.response.data.message,
             confirmButtonText: "Ok",
           });
         });

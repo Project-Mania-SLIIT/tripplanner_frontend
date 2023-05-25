@@ -7,8 +7,11 @@ import Home from "./pages/user/home";
 import Hotel from "./pages/user/hotel";
 import Packages from "./pages/user/package";
 import Place from "./pages/user/place";
-import Hoteladmin from "./pages/admin/pages/hotel";
 import Profile from "./pages/user/profile";
+import Hoteladmin from "./pages/admin/hotel";
+import Packageadmin from "./pages/admin/package";
+import Placeadmin from "./pages/admin/place";
+import Useradmin from "./pages/admin/user";
 
 function App() {
   return (
@@ -22,13 +25,16 @@ function App() {
           <Route exact path="/">
             <Route exact path="home" element={<Home />} />
           </Route>
-
+          <Route exact path="/hoteladmin" element={<Hoteladmin />}/>
+          <Route exact path="/packageadmin" element={<Packageadmin />}/>
+          <Route exact path="/placeadmin" element={<Placeadmin />}/>
+          <Route exact path="/useradmin" element={<Useradmin />}/>
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />
           <Route exact path="hotel" element={<Hotel />} />
           <Route exact path="package" element={<Packages />} />
           <Route exact path="place" element={<Place />} />
-          <Route exact path="hadmin" element={<Hoteladmin />} />
+          {/* <Route exact path="hadmin" element={<Hoteladmin />} /> */}
           <Route exact path="profile" element={<Profile />} />
         </Routes>
       </Router>

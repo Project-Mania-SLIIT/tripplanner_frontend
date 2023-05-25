@@ -9,7 +9,7 @@ export default function Sidenav() {
         id="navbar"
       >
         <div className="sidenav-header">
-          <a className="brand" href="#">
+          <a className="brand" href="?">
             {/* <img src="https://thumbs.dreamstime.com/b/admin-office-binder-wooden-desk-table-colored-pencil-pencils-pen-notebook-paper-79046621.jpg" style={{width: '200px'}} alt="image"/> */}
           </a>
         </div>
@@ -41,7 +41,7 @@ export default function Sidenav() {
               {" "}
               Hotels{" "}
             </a>
-            <a href="#" class="nav-item nav-link dash-link">
+            <a href="?" class="nav-item nav-link dash-link">
               {" "}
               Packages{" "}
             </a>
@@ -60,7 +60,7 @@ export default function Sidenav() {
           <div class="col-md-2 ">
             <br />
             <i class="fa fa-bell icon-dash d-inline mr-4 yellow"> </i>
-            <a href="#" class="btn btn-dash d-inline ">
+            <a href="?" class="btn btn-dash d-inline ">
               {" "}
               <i
                 class="fa fa-user d-inline white icon-dash"

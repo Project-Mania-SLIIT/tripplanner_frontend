@@ -13,6 +13,7 @@ const index = () => {
               <div className="col-lg-6">
                 <div className="card-shadow">
                   <img
+                    alt=""
                     src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/2.jpg"
                     className="img-fluid"
                   />
@@ -78,7 +79,7 @@ const index = () => {
                     <div className="col-lg-4 col-md-4">
                       <div className="card-body d-flex align-items-center c-detail pl-0">
                         <div className="mr-3 align-self-center">
-                          <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" />
+                          <img alt="" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" />
                         </div>
                         <div className>
                           <h6 className="font-weight-medium">Address</h6>
@@ -92,7 +93,7 @@ const index = () => {
                     <div className="col-lg-4 col-md-4">
                       <div className="card-body d-flex align-items-center c-detail">
                         <div className="mr-3 align-self-center">
-                          <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png" />
+                          <img alt="" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png" />
                         </div>
                         <div className>
                           <h6 className="font-weight-medium">Phone</h6>
@@ -106,7 +107,7 @@ const index = () => {
                     <div className="col-lg-4 col-md-4">
                       <div className="card-body d-flex align-items-center c-detail">
                         <div className="mr-3 align-self-center">
-                          <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png" />
+                          <img alt="" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png" />
                         </div>
                         <div className>
                           <h6 className="font-weight-medium">Email</h6>

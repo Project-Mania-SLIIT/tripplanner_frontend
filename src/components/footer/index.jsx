@@ -66,10 +66,7 @@ const Footer = () => {
             textColor: "#E0E0E0",
           }}
         >
-          © 2023 Copyright:
-          <a className="text-white" href="#">
-            Traveloo
-          </a>
+          <div className="text-white">© 2023 Copyright:Traveloo</div>
         </div>
       </footer>
     </div>

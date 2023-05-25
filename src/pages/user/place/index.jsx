@@ -10,41 +10,21 @@ const place = () => {
   return (
     <div>
       <Navbar />
-      <div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-mdb-target="#carouselExampleCaptions"
-          data-mdb-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-mdb-target="#carouselExampleCaptions"
-          data-mdb-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
       <main>
         <div className="container">
           <nav
             className="navbar navbar-expand-lg navbar-dark mt-3 mb-5 shadow p-2"
-            style={{ backgroundColor: "#1C4E80" }}
+            style={{ backgroundColor: "?1C4E80" }}
           >
             <div className="container-fluid">
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="?">
                 Places To Visit
               </a>
               <button
                 className="navbar-toggler"
                 type="button"
                 data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent2"
+                data-mdb-target="?navbarSupportedContent2"
                 aria-controls="navbarSupportedContent2"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -75,7 +55,7 @@ const place = () => {
                       className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                       data-mdb-ripple-color="light"
                     >
-                      <img src={sigiriya} className="w-100" />
+                      <img alt="" src={sigiriya} className="w-100" />
                       <a href="single">
                         <div className="mask">
                           <div className="d-flex justify-content-start align-items-end h-100">
@@ -116,37 +96,37 @@ const place = () => {
           >
             <ul className="pagination">
               <li className="page-item disabled">
-                <a className="page-link" href="#" aria-label="Previous">
+                <a className="page-link" href="?" aria-label="Previous">
                   <span aria-hidden="true">«</span>
                 </a>
               </li>
               <li className="page-item active">
-                <a className="page-link" href="#">
+                <a className="page-link" href="?">
                   1
                 </a>
               </li>
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a className="page-link" href="?">
                   2
                 </a>
               </li>
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a className="page-link" href="?">
                   3
                 </a>
               </li>
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a className="page-link" href="?">
                   4
                 </a>
               </li>
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a className="page-link" href="?">
                   5
                 </a>
               </li>
               <li className="page-item">
-                <a className="page-link" href="#" aria-label="Next">
+                <a className="page-link" href="?" aria-label="Next">
                   <span aria-hidden="true">»</span>
                 </a>
               </li>

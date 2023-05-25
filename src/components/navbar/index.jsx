@@ -68,7 +68,7 @@ const Navbar = () => {
                 <div className="dropdown">
                   <a
                     className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                    href="#"
+                    href="?"
                     id="navbarDropdownMenuAvatar"
                     role="button"
                     data-mdb-toggle="dropdown"

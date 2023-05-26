@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/blog/latest")
+      .get("https://tripplanner.up.railway.app/api/v1/blog/latest")
       .then((res) => {
         setBlog(res.data);
       })
@@ -36,7 +36,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/hotel/latest")
+      .get("https://tripplanner.up.railway.app/api/v1/hotel/latest")
       .then((res) => {
         setHotel(res.data);
       })
@@ -47,7 +47,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/tours/latest")
+      .get("https://tripplanner.up.railway.app/api/v1/tours/latest")
       .then((res) => {
         setTour(res.data);
       })
@@ -66,25 +66,19 @@ export default function Home() {
             itemId={1}
             src={cs1}
             alt="..."
-          >
-            
-          </MDBCarouselItem>
+          ></MDBCarouselItem>
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={2}
             src={cs2}
             alt="..."
-          >
-            
-          </MDBCarouselItem>
+          ></MDBCarouselItem>
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={3}
             src={cs3}
             alt="..."
-          >
-            
-          </MDBCarouselItem>
+          ></MDBCarouselItem>
         </MDBCarousel>
       </div>
       <div>
@@ -95,19 +89,17 @@ export default function Home() {
       </div>
       <div>
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
-        {tour.map((tour) => (
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage src={tour.photo} alt="..." position="top" />
-              <MDBCardBody>
-                <MDBCardTitle>{tour.title}</MDBCardTitle>
-                <MDBCardText>
-                 {tour.desc}
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        ))}
+          {tour.map((tour) => (
+            <MDBCol>
+              <MDBCard className="h-100">
+                <MDBCardImage src={tour.photo} alt="..." position="top" />
+                <MDBCardBody>
+                  <MDBCardTitle>{tour.title}</MDBCardTitle>
+                  <MDBCardText>{tour.desc}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
         </MDBRow>
       </div>
 

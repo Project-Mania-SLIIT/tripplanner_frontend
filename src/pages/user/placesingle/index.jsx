@@ -3,58 +3,61 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import Swal from "sweetalert2";
-import Navbar from '../../../components/navbar'
-import Footer from '../../../components/footer'
+import Navbar from "../../../components/navbar";
+import Footer from "../../../components/footer";
 import {
-    MDBBtn,
-    MDBCard,
-    MDBCardBody,
-    MDBCardImage,
-    MDBCol,
-    MDBContainer,
-    MDBIcon,
-    MDBInput,
-    MDBRow,
-    MDBTypography,
-  } from "mdb-react-ui-kit";
-  
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCol,
+  MDBContainer,
+  MDBIcon,
+  MDBInput,
+  MDBRow,
+  MDBTypography,
+} from "mdb-react-ui-kit";
 
 export default function index() {
+  const params = useParams();
+  const [blog, setBlog] = useState([]);
+  const blogId = params.id;
 
-    const params = useParams();
-    const [blog, setBlog] = useState([]);
-    const blogId = params.id;
-
-    useEffect(() => {
-      console.log(params.id)
-      axios
-        .get("http://localhost:4000/api/v1/blog/single/" + blogId)
-        .then((res) => {
-          console.log(res);
-          setBlog(res.data);
-          //console.log(res.data)
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, []);
+  useEffect(() => {
+    console.log(params.id);
+    axios
+      .get("https://tripplanner.up.railway.app/api/v1/blog/single/" + blogId)
+      .then((res) => {
+        console.log(res);
+        setBlog(res.data);
+        //console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="container mt-5">
         {/*Grid row*/}
         <div className="row">
           {/*Grid column*/}
-          <div className="col-md-6 mb-4" >
-            <img src={blog.image} className="img-fluid" alt="" style={{ width: "250px", height:"250px" }}/>
+          <div className="col-md-6 mb-4">
+            <img
+              src={blog.image}
+              className="img-fluid"
+              alt=""
+              style={{ width: "250px", height: "250px" }}
+            />
           </div>
           {/*Grid column*/}
           {/*Grid column*/}
           <div className="col-md-6 mb-4">
             {/*Content*/}
             <div className="p-4">
-            <a href className="text-reset">
+              <a href className="text-reset">
                 <h2 className="card-title">{blog.title}</h2>
               </a>
               <div className="mb-3">
@@ -62,10 +65,9 @@ export default function index() {
                   <span className="badge bg-dark">{blog.city}</span>
                 </a>
               </div>
-              
+
               <p>{blog.description}</p>
               {/* <h4 className="price">{blog.roomCount} Rooms</h4> */}
-              
             </div>
             {/*Content*/}
           </div>
@@ -113,5 +115,5 @@ export default function index() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }

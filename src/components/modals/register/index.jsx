@@ -56,7 +56,10 @@ export default function Register() {
     e.preventDefault();
     if (validate()) {
       await axios
-        .post("http://localhost:4000/api/v1/auth/register", formData)
+        .post(
+          "https://tripplanner.up.railway.app/api/v1/auth/register",
+          formData
+        )
         .then((res) => {
           console.log(res);
           Swal.fire({

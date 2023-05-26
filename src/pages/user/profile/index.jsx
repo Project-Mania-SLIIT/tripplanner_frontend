@@ -16,7 +16,7 @@ export default function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/users/" + user)
+      .get("https://tripplanner.up.railway.app/api/v1/users/" + user)
       .then(function (response) {
         setUsername(response.data.data["username"]);
         setEmail(response.data.data["email"]);
@@ -32,7 +32,7 @@ export default function Profile() {
 
   function handledelete(id) {
     axios
-      .delete("http://localhost:4000/api/v1/users/" + user)
+      .delete("https://tripplanner.up.railway.app/api/v1/users/" + user)
       .then(function (response) {
         Swal.fire({
           title: "Success!",
@@ -168,8 +168,8 @@ export default function Profile() {
           </div>
         </div>
       </div>
-      <div className="fixed-bottom"> 
-      <Footer />
+      <div className="fixed-bottom">
+        <Footer />
       </div>
     </div>
   );

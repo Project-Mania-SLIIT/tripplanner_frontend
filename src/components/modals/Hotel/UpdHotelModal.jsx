@@ -24,7 +24,6 @@ export default function UpdHotelModal(props) {
     // revid,
   };
   const UpdateShow = () => {
-    console.log(props.hsid);
     setHotel(props.hsid);
     axios
       .get("http://localhost:4000/api/v1/hotel/single/" + props.hsid)
@@ -57,8 +56,9 @@ export default function UpdHotelModal(props) {
           title: "Success!",
           text: "User updated Successfully",
           icon: "success",
+        }).then(function () {
+          window.location.reload();
         });
-        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);

@@ -75,10 +75,14 @@ const Navbar = () => {
                     aria-expanded="false"
                   >
                     <img
-                      src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                      src={
+                        localStorage.getItem("photo")
+                          ? localStorage.getItem("photo")
+                          : "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                      }
                       className="rounded-circle"
-                      height={25}
-                      alt="Black and White Portrait of a Man"
+                      height={50}
+                      alt="Avatar"
                       loading="lazy"
                     />
                   </a>
@@ -107,19 +111,18 @@ const Navbar = () => {
                         Logout
                       </button>
                     </li>
-                    {localStorage.getItem("role") ===
-                      "admin"?(
-                        <li>
-                          <button
-                            className="dropdown-item"
-                            onClick={() => {
-                              window.location = "/admin";
-                            }}
-                          >
-                            Admin Page
-                          </button>
-                        </li>
-                      ):null}
+                    {localStorage.getItem("role") === "admin" ? (
+                      <li>
+                        <button
+                          className="dropdown-item"
+                          onClick={() => {
+                            window.location = "/admin";
+                          }}
+                        >
+                          Admin Page
+                        </button>
+                      </li>
+                    ) : null}
                   </ul>
                 </div>
               </>

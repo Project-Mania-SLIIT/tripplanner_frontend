@@ -58,6 +58,9 @@ export default function AddHotelModal() {
             text: "Hotel added Successfully",
             icon: "success",
             confirmButtonText: "Ok",
+          }).then(() => {
+            setShow(false);
+            window.location.reload();
           });
         })
         .catch(function (error) {
@@ -201,12 +204,7 @@ export default function AddHotelModal() {
               </Col>
               <Col sm={8}>
                 <Form.Group controlId="formFile">
-                  <Form.Control
-                    onChange={(e) => {
-                      setImage(e.target.value);
-                    }}
-                    type="file"
-                  />
+                  <Form.Control onChange={handleImageChange} type="file" />
                 </Form.Group>
               </Col>
             </Form.Group>

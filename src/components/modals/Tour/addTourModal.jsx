@@ -7,7 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { LoadingOverlay } from "@mantine/core";
 import { useForm } from "react-hook-form";
-import  requestConfigJson from "../../../context/ConfigJson";
+import requestConfigJson from "../../../context/ConfigJson";
 
 export default function AddTourModal() {
   const [show, setShow] = useState(false);
@@ -37,7 +37,7 @@ export default function AddTourModal() {
 
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:4000/api/v1/tours/",
+        "https://tripplanner.up.railway.app/api/v1/tours/",
         tourData,
         requestConfigJson
       );

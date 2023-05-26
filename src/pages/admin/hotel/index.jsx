@@ -13,7 +13,7 @@ export default function Index() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/hotel")
+      .get("https://tripplanner.up.railway.app/api/v1/hotel")
       .then((res) => {
         setHotel(res.data);
       })
@@ -24,7 +24,10 @@ export default function Index() {
 
   function handledelete(id) {
     axios
-      .delete("http://localhost:4000/api/v1/hotel/" + id, requestConfigJson)
+      .delete(
+        "https://tripplanner.up.railway.app/api/v1/hotel/" + id,
+        requestConfigJson
+      )
       .then(function (response) {
         Swal.fire({
           title: "Success!",

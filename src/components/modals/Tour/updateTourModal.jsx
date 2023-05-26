@@ -38,7 +38,7 @@ export default function UpdateTourModal(props) {
 
       setLoading(true);
       const res = await axios.put(
-        "http://localhost:4000/api/v1/tours/" + props.id,
+        "https://tripplanner.up.railway.app/api/v1/tours/" + props.id,
         tourData,
         requestConfigJson
       );

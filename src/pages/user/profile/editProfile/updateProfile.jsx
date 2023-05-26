@@ -23,7 +23,7 @@ export default function UpdateProfile(props) {
     console.log(props.usid);
     setUser(props.usid);
     axios
-      .get("http://localhost:4000/api/v1/users/" + props.usid)
+      .get("https://tripplanner.up.railway.app/api/v1/users/" + props.usid)
       .then(function (response) {
         setUsername(response.data.data["username"]);
         setEmail(response.data.data["email"]);
@@ -39,7 +39,10 @@ export default function UpdateProfile(props) {
   function submitForm(e) {
     e.preventDefault();
     axios
-      .put("http://localhost:4000/api/v1/users/update/" + props.usid, UserData)
+      .put(
+        "https://tripplanner.up.railway.app/api/v1/users/update/" + props.usid,
+        UserData
+      )
       .then(function (response) {
         setUsername("");
         setEmail("");
@@ -55,7 +58,7 @@ export default function UpdateProfile(props) {
         });
       })
       .catch(function (error) {
-        console.log(error); 
+        console.log(error);
       });
   }
 
@@ -75,7 +78,7 @@ export default function UpdateProfile(props) {
         </Modal.Header>
 
         <Form>
-        <Modal.Body>
+          <Modal.Body>
             <Form.Group
               as={Row}
               className="mb-3"

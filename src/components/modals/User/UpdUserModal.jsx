@@ -16,14 +16,13 @@ export default function UpdUserModal(props) {
 
   const UserData = {
     role,
-    
   };
 
   const UpdateShow = () => {
     console.log(props.usid);
     setUser(props.usid);
     axios
-      .get("http://localhost:4000/api/v1/users/" + props.usid)
+      .get("https://tripplanner.up.railway.app/api/v1/users/" + props.usid)
       .then(function (response) {
         setUsername(response.data.data["username"]);
         setEmail(response.data.data["email"]);
@@ -40,7 +39,10 @@ export default function UpdUserModal(props) {
   function submitForm(e) {
     e.preventDefault();
     axios
-      .put("http://localhost:4000/api/v1/users/update/" + props.usid, UserData)
+      .put(
+        "https://tripplanner.up.railway.app/api/v1/users/update/" + props.usid,
+        UserData
+      )
       .then(function (response) {
         setUsername("");
         setEmail("");

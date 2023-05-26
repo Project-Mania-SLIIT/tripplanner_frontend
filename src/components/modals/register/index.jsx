@@ -4,15 +4,17 @@ import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import { LoadingOverlay } from "@mantine/core";
 
 export default function Register() {
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
     photo: "",
-    role: "",
+    role: "user",
   });
 
   const validate = () => {
@@ -76,6 +78,45 @@ export default function Register() {
     }
   };
 
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    try {
+      const file = e.target.files[0];
+
+      if (!file) return alert("File not exist.");
+
+      if (file.size > 1024 * 1024)
+        // 1mb
+        return alert("Size too large!");
+
+      if (file.type !== "image/jpeg" && file.type !== "image/png")
+        // 1mb
+        return alert("File format is incorrect.");
+
+      let formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "carengo");
+      formData.append("cloud_name", "itp2022");
+
+      setLoading(true);
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/itp2022/image/upload",
+        formData,
+        {
+          method: "post",
+          body: formData,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      );
+      await setFormData({ ...formData, photo: res.data.url });
+      setLoading(false);
+    } catch (err) {
+      console.log(err.response.data.msg);
+    }
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -86,6 +127,7 @@ export default function Register() {
       </Button>
 
       <Modal size="m" show={show} onHide={handleClose}>
+        <LoadingOverlay visible={loading} overlayBlur={2} />
         <Modal.Header closeButton>
           <Modal.Title>Register</Modal.Title>
         </Modal.Header>
@@ -95,12 +137,7 @@ export default function Register() {
               <div className="form-group col-md-12">
                 <label for="inputEmail4">Upload Profile Picture</label>
                 <Form.Group controlId="formFile">
-                  <Form.Control
-                    onChange={(e) =>
-                      setFormData({ ...formData, photo: e.target.value })
-                    }
-                    type="file"
-                  />
+                  <Form.Control onChange={handleImageChange} type="file" />
                 </Form.Group>
               </div>
               <div className="form-group col-md-12">
@@ -145,10 +182,11 @@ export default function Register() {
                   onChange={(e) =>
                     setFormData({ ...formData, role: e.target.value })
                   }
+                  value={formData.role}
                 >
-                  <option selected>Select A Role</option>
                   <option value="user">User</option>
-                  <option value="admin">Admin</option>
+                  <option value="hotel_manager">Hotel Manager</option>
+                  <option value="tour_manager">Tour Manager</option>
                 </select>
               </div>
             </div>

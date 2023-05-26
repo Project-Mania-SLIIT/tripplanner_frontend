@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
@@ -6,77 +6,119 @@ import { Col, Row, Form } from "react-bootstrap";
 import axios from "axios";
 import swal from "sweetalert";
 import Swal from "sweetalert2";
+import { LoadingOverlay } from "@mantine/core";
 
 export default function AddHotelModal() {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const userId = localStorage.getItem("_id");
 
-    const userId = localStorage.getItem("_id");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [city, setCity] = useState("");
+  const [roomcount, setRoomcount] = useState("");
+  const [image, setImage] = useState("");
+  const [revid, setRevid] = useState("");
 
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [city, setCity] = useState("");
-    const [roomcount, setRoomcount] = useState("");
-    const [image, setImage] = useState("");
-    const [revid, setRevid] = useState("");
+  const HotData = {
+    userId,
+    name,
+    description,
+    city,
+    roomcount,
+    image,
+    // revid,
+  };
 
-    const HotData = {
-        userId,
-        name,
-        description,
-        city,
-        roomcount,
-        image,
-        // revid,
-    };
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-    
-        if (
-            name.length === 0 ||
-            description.length === 0 ||
-            city.length === 0 ||
-            roomcount.length === 0 
-            // ||  image.length === 0         
-            ) {
-          swal(" Fields Cannot be empty !", "Please enter all data !", "error");
-        } else {
-          console.log(HotData);
-          axios
-            .post("http://localhost:4000/api/v1/hotel/", HotData)
-            .then(function (res) {
-              // alert("Added Successfully");
-              console.log(res);
-              setName("");
-              setDescription("");
-              setCity("");
-              setRoomcount("");
-              setImage("");
-              Swal.fire({
-                title: "Success!",
-                text: "Hotel added Successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
-              })
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+    if (
+      name.length === 0 ||
+      description.length === 0 ||
+      city.length === 0 ||
+      roomcount.length === 0
+      // ||  image.length === 0
+    ) {
+      swal(" Fields Cannot be empty !", "Please enter all data !", "error");
+    } else {
+      console.log(HotData);
+      axios
+        .post("http://localhost:4000/api/v1/hotel/", HotData)
+        .then(function (res) {
+          // alert("Added Successfully");
+          console.log(res);
+          setName("");
+          setDescription("");
+          setCity("");
+          setRoomcount("");
+          setImage("");
+          Swal.fire({
+            title: "Success!",
+            text: "Hotel added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
+
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    try {
+      const file = e.target.files[0];
+
+      if (!file) return alert("File not exist.");
+
+      if (file.size > 1024 * 1024)
+        // 1mb
+        return alert("Size too large!");
+
+      if (file.type !== "image/jpeg" && file.type !== "image/png")
+        // 1mb
+        return alert("File format is incorrect.");
+
+      let formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "carengo");
+      formData.append("cloud_name", "itp2022");
+
+      setLoading(true);
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/itp2022/image/upload",
+        formData,
+        {
+          method: "post",
+          body: formData,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
         }
-      }
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+      );
+      await setImage(res.data.url);
+      setLoading(false);
+    } catch (err) {
+      console.log(err.response.data.msg);
+    }
+  };
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
       <Button className="btn btn-primary ms-1" onClick={handleShow}>
-        Add Hotel 
+        Add Hotel
       </Button>
 
       <Modal show={show} size="lg" centered>
+        <LoadingOverlay visible={loading} overlayBlur={2} />
         <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">Add a hotel</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Add a hotel
+          </Modal.Title>
         </Modal.Header>
 
         <Form onSubmit={handleSubmit}>
@@ -158,11 +200,11 @@ export default function AddHotelModal() {
                 <Form.Label>Image:</Form.Label>
               </Col>
               <Col sm={8}>
-              <Form.Group controlId="formFile">
+                <Form.Group controlId="formFile">
                   <Form.Control
                     onChange={(e) => {
-                        setImage(e.target.value);
-                      }}
+                      setImage(e.target.value);
+                    }}
                     type="file"
                   />
                 </Form.Group>
@@ -174,11 +216,11 @@ export default function AddHotelModal() {
               Exit
             </Button>
             <Button variant="primary" type="submit" onClick={handleClose}>
-              Submit 
+              Submit
             </Button>
           </Modal.Footer>
         </Form>
       </Modal>
     </>
-  )
+  );
 }

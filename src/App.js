@@ -12,6 +12,10 @@ import Hoteladmin from "./pages/admin/hotel";
 import Packageadmin from "./pages/admin/package";
 import Placeadmin from "./pages/admin/place";
 import Useradmin from "./pages/admin/user";
+import Hotelsingle from "./pages/user/hotelsingle"
+import Placesingle from "./pages/user/placesingle"
+import Packagesingle from "./pages/user/packagesingle"
+import AllReviews from "./pages/user/allReviews"
 
 function App() {
   return (
@@ -28,7 +32,13 @@ function App() {
           <Route exact path="/hoteladmin" element={<Hoteladmin />}/>
           <Route exact path="/packageadmin" element={<Packageadmin />}/>
           <Route exact path="/placeadmin" element={<Placeadmin />}/>
+          <Route exact path="/hotelsingle/:id" element={<Hotelsingle />}/>
+          <Route exact path="/placesingle/:id" element={<Placesingle />}/>
+          <Route exact path="/packagesingle/:id" element={<Packagesingle />}/>
+          <Route exact path="/packageadmin" element={<Packageadmin />}/>
+          <Route exact path="/placeadmin" element={<Placeadmin />}/>
           <Route exact path="/useradmin" element={<Useradmin />}/>
+          <Route exact path="/allreviews" element={<AllReviews />}/>
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />
           <Route exact path="hotel" element={<Hotel />} />

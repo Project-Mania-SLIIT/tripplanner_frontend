@@ -1,10 +1,29 @@
-import React from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect, useState } from "react";
+import Sidenav from "../../../components/admin/sidenav";
+import { Button, Table } from "react-bootstrap";
+import axios from "axios";
+import Swal from "sweetalert2";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
 import taj from "../../../assets/images/taj.jpg";
 
 const hotel = () => {
+
+  const [hotel, setHotel] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/v1/hotel")
+      .then((res) => {
+        setHotel(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -47,21 +66,22 @@ const hotel = () => {
           <section>
             <div className="text-center">
               <div className="row">
-                <div className="col-lg-3 col-md-6 mb-4">
+              {hotel.map((ht) => (
+                <div key={ht._id} className="col-lg-3 col-md-6 mb-4">
                   <div className="card">
                     <div
                       className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                       data-mdb-ripple-color="light"
                     >
-                      <img alt="" src={taj} className="w-100" />
-                      <a href="single">
-                        <div className="mask">
+                      <img alt="" src={ht.image} className="w-100" />
+                      <a href={"hotelsingle/" + ht._id}>
+                        {/* <div className="mask">
                           <div className="d-flex justify-content-start align-items-end h-100">
                             <h5>
                               <span className="badge bg-dark ms-2">NEW</span>
                             </h5>
                           </div>
-                        </div>
+                        </div> */}
                         <div className="hover-overlay">
                           <div
                             className="mask"
@@ -75,16 +95,17 @@ const hotel = () => {
                     <div className="card-body">
                       <a href className="text-reset">
                         <h5 className="card-title mb-2">
-                          <strong>Taj Hotel</strong>
+                          <strong>{ht.name}</strong>
                         </h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>5 Star Hotel</p>
+                        <p>{ht.city}</p>
                       </a>
                       <h6 className="mb-3 price">Click Here For More Info</h6>
                     </div>
                   </div>
                 </div>
+                 ))}
               </div>
             </div>
           </section>

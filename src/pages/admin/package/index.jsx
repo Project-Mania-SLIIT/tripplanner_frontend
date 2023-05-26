@@ -79,8 +79,6 @@ export default function Index() {
                 <td>{tour.pricePerHead}</td>
                 <td>{tour.maxGroupSize}</td>
                 <td>{tour.modeOfTransport}</td>
-                <td>
-                  {" "}
                   <td>
                     <UpdateTourModal
                       id={tour._id}
@@ -101,7 +99,6 @@ export default function Index() {
                       Delete
                     </Button>
                   </td>
-                </td>
               </tr>
             ))}
           </tbody>

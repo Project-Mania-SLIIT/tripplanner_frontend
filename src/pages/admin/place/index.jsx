@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from "react";
 import Sidenav from "../../../components/admin/sidenav";
 import { Button, Table } from "react-bootstrap";
@@ -55,6 +56,7 @@ export default function Index() {
               <th>Title</th>
               <th>Description</th>
               <th>City</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>

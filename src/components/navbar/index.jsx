@@ -96,7 +96,7 @@ const Navbar = () => {
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/userreviews">
+                      <a className="dropdown-item" href="/allreviews">
                         Feedbacks
                       </a>
                     </li>

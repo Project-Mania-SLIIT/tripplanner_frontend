@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBCarousel,
   MDBCarouselItem,
@@ -13,25 +13,53 @@ import {
 
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
-
-import arugam from "../../../assets/images/arugam.jpg"
-import kingsbury from "../../../assets/images/kingsbury.jpg"
-import jetwing from "../../../assets/images/jetwing.jpg"
-import cinnamon from "../../../assets/images/cinnamon.jpg"
-import ramada from "../../../assets/images/ramada.jpg"
-import taj from "../../../assets/images/taj.jpg"
-import dalada from "../../../assets/images/dalada.jpg"
-import ninearch from "../../../assets/images/ninearch.jpg"
-import sigiriya from "../../../assets/images/sigiriya.jpg"
-import hikk from "../../../assets/images/hikk.jpg"
-import cs2 from "../../../assets/images/carousel2.jpg"
-import cs3 from "../../../assets/images/carousel3.jpg"
-import cs4 from "../../../assets/images/NAT.jpg"
+import hikk from "../../../assets/images/hikk.jpg";
+import cs2 from "../../../assets/images/carousel2.jpg";
+import cs3 from "../../../assets/images/carousel3.jpg";
+import cs4 from "../../../assets/images/NAT.jpg";
+import axios from "axios";
 
 export default function Home() {
+  const [blog, setBlog] = useState([]);
+  const [hotel, setHotel] = useState([]);
+  const [tour, setTour] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/v1/blog/latest")
+      .then((res) => {
+        setBlog(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/v1/hotel/latest")
+      .then((res) => {
+        setHotel(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/v1/tours/latest")
+      .then((res) => {
+        setTour(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div>
-       <Navbar />
+      <Navbar />
       <div>
         <MDBCarousel showControls showIndicators>
           <MDBCarouselItem
@@ -73,89 +101,22 @@ export default function Home() {
       </div>
       <div>
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
+        {tour.map((tour) => (
           <MDBCol>
             <MDBCard className="h-100">
-              <MDBCardImage
-                src={hikk}
-                alt="..."
-                position="top"
-              />
+              <MDBCardImage src={tour.photo} alt="..." position="top" />
               <MDBCardBody>
-                <MDBCardTitle>Hikkaduwa package</MDBCardTitle>
+                <MDBCardTitle>{tour.title}</MDBCardTitle>
                 <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                 {tour.desc}
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={arugam}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Arugam Bay package</MDBCardTitle>
-                <MDBCardText>This is a short card.</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={dalada}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Sri Dalada Maligawa Package</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={ninearch}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Nine Arch Bridge package</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={sigiriya}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Sigiriya</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
+        ))}
         </MDBRow>
       </div>
-    
+
       <div>
         <br />
         <h2>
@@ -164,86 +125,17 @@ export default function Home() {
       </div>
       <div>
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={arugam}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Arugam Bay</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={ninearch}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Nine Arch Bridge</MDBCardTitle>
-                <MDBCardText>This is a short card.</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={sigiriya}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Sigiriya</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={dalada}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Sri Dalada Maligawa</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={hikk}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Hikkaduwa</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
+          {blog.map((blog) => (
+            <MDBCol>
+              <MDBCard className="h-100">
+                <MDBCardImage src={blog.image} alt="..." position="top" />
+                <MDBCardBody>
+                  <MDBCardTitle>{blog.title}</MDBCardTitle>
+                  <MDBCardText>{blog.description}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
         </MDBRow>
       </div>
 
@@ -255,86 +147,17 @@ export default function Home() {
       </div>
       <div>
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={kingsbury}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Kingsbury Hotel</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={cinnamon}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Cinnamon Grand Hotel</MDBCardTitle>
-                <MDBCardText>This is a short card.</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={jetwing}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Jetwing Lagoon Hotel</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={ramada}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Ramada Hotel</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={taj}
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Taj Samudra Hotel</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
+          {hotel.map((hotel) => (
+            <MDBCol>
+              <MDBCard className="h-100">
+                <MDBCardImage src={hotel.image} alt="..." position="top" />
+                <MDBCardBody>
+                  <MDBCardTitle>{hotel.name}</MDBCardTitle>
+                  <MDBCardText>{hotel.description}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
         </MDBRow>
       </div>
       <Footer />

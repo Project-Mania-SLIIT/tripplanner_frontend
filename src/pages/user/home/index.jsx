@@ -13,10 +13,9 @@ import {
 
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
-import hikk from "../../../assets/images/hikk.jpg";
-import cs2 from "../../../assets/images/carousel2.jpg";
-import cs3 from "../../../assets/images/carousel3.jpg";
-import cs4 from "../../../assets/images/NAT.jpg";
+import cs1 from "../../../assets/images/sigiriya.jpg";
+import cs2 from "../../../assets/images/dalada.jpg";
+import cs3 from "../../../assets/images/heritage.jpg";
 import axios from "axios";
 
 export default function Home() {
@@ -65,11 +64,10 @@ export default function Home() {
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={1}
-            src={cs4}
+            src={cs1}
             alt="..."
           >
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
           </MDBCarouselItem>
           <MDBCarouselItem
             className="w-100 d-block"
@@ -77,8 +75,7 @@ export default function Home() {
             src={cs2}
             alt="..."
           >
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
           </MDBCarouselItem>
           <MDBCarouselItem
             className="w-100 d-block"
@@ -86,10 +83,7 @@ export default function Home() {
             src={cs3}
             alt="..."
           >
-            <h5>Third slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            
           </MDBCarouselItem>
         </MDBCarousel>
       </div>

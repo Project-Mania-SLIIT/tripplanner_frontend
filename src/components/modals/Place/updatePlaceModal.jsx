@@ -100,8 +100,8 @@ export default function UpdatePlaceModal(props) {
 
   return (
     <>
-      <Button className="btn btn-primary ms-1" onClick={handleShow}>
-        Update
+      <Button className="btn btn-success ms-1" onClick={handleShow}>
+        Edit
       </Button>
 
       <Modal show={show} size="lg" centered>

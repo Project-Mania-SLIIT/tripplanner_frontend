@@ -52,14 +52,7 @@ const packages = () => {
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent2"
               >
-                <form className="w-auto py-1 " style={{ maxWidth: "12rem" }}>
-                  <input
-                    type="search"
-                    className="form-control rounded-0"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                </form>
+                
               </div>
             </div>
           </nav>

@@ -53,14 +53,7 @@ const place = () => {
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent2"
               >
-                <form className="w-auto py-1" style={{ maxWidth: "12rem" }}>
-                  <input
-                    type="search"
-                    className="form-control rounded-0"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                </form>
+                
               </div>
             </div>
           </nav>
@@ -76,13 +69,6 @@ const place = () => {
                     >
                       <img alt="" src={bl.image} className="w-100" />
                       <a href={"placesingle/" + bl._id}>
-                        {/* <div className="mask">
-                          <div className="d-flex justify-content-start align-items-end h-100">
-                            <h5>
-                              <span className="badge bg-dark ms-2">NEW</span>
-                            </h5>
-                          </div>
-                        </div> */}
                         <div className="hover-overlay">
                           <div
                             className="mask"

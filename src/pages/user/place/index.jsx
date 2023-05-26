@@ -1,10 +1,30 @@
-import React from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect, useState } from "react";
+import Sidenav from "../../../components/admin/sidenav";
+import { Button, Table } from "react-bootstrap";
+import axios from "axios";
+import Swal from "sweetalert2";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
 import sigiriya from "../../../assets/images/sigiriya.jpg";
 
 const place = () => {
+
+  const [blog, setBlog] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/v1/blog")
+      .then((res) => {
+        setBlog(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
   return (
     <div>
       <Navbar />
@@ -47,21 +67,22 @@ const place = () => {
           <section>
             <div className="text-center">
               <div className="row">
+              {blog.map((bl) => (
                 <div className="col-lg-3 col-md-6 mb-4">
                   <div className="card">
                     <div
                       className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                       data-mdb-ripple-color="light"
                     >
-                      <img alt="" src={sigiriya} className="w-100" />
-                      <a href="single">
-                        <div className="mask">
+                      <img alt="" src={bl.image} className="w-100" />
+                      <a href={"placesingle/" + bl._id}>
+                        {/* <div className="mask">
                           <div className="d-flex justify-content-start align-items-end h-100">
                             <h5>
                               <span className="badge bg-dark ms-2">NEW</span>
                             </h5>
                           </div>
-                        </div>
+                        </div> */}
                         <div className="hover-overlay">
                           <div
                             className="mask"
@@ -75,16 +96,17 @@ const place = () => {
                     <div className="card-body">
                       <a href className="text-reset">
                         <h5 className="card-title mb-2">
-                          Sigiriya Rock Fortress
+                          {bl.title}
                         </h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Unesco World Heritage Site</p>
+                        <p>{bl.city}</p>
                       </a>
                       <h6 className="mb-3 price">Click Here For More Info</h6>
                     </div>
                   </div>
                 </div>
+                ))}
               </div>
             </div>
           </section>

@@ -5,18 +5,18 @@ import { Col, Row, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function UpdUserModal(props) {
+export default function UpdateProfile(props) {
   const [show, setShow] = useState(false);
 
   const [user, setUser] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState("");
-  const [role, setRole] = useState("");
 
   const UserData = {
-    role,
-    
+    email,
+    photo,
+    username,
   };
 
   const UpdateShow = () => {
@@ -28,7 +28,6 @@ export default function UpdUserModal(props) {
         setUsername(response.data.data["username"]);
         setEmail(response.data.data["email"]);
         setPhoto(response.data.data["photo"]);
-        setRole(response.data.data["role"]);
         setShow(true);
       })
       .catch(function (error) {
@@ -45,7 +44,6 @@ export default function UpdUserModal(props) {
         setUsername("");
         setEmail("");
         setPhoto("");
-        setRole("");
         setShow(false);
         Swal.fire({
           title: "Success!",
@@ -53,12 +51,11 @@ export default function UpdUserModal(props) {
           icon: "success",
           confirmButtonText: "Ok",
         }).then(() => {
-          localStorage.setItem("role", role);
           window.location.reload();
         });
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error); 
       });
   }
 
@@ -67,7 +64,7 @@ export default function UpdUserModal(props) {
   return (
     <>
       <Button className="btn btn-success ms-1" onClick={UpdateShow}>
-        Edit
+        Update Details
       </Button>
 
       <Modal show={show} size="lg" centered>
@@ -78,26 +75,62 @@ export default function UpdUserModal(props) {
         </Modal.Header>
 
         <Form>
-          <Modal.Body>
+        <Modal.Body>
             <Form.Group
               as={Row}
               className="mb-3"
               controlId="formPlaintextEmail"
             >
               <Col sm={3}>
-                <Form.Label>Role:</Form.Label>
+                <Form.Label>Image:</Form.Label>
               </Col>
               <Col sm={8}>
-                <select
-                  className="form-select"
-                  onChange={(e) => setRole(e.target.value)}
-                  value={role}
-                >
-                  <option value="user">User</option>
-                  <option value="hotel_manager">Hotel Manager</option>
-                  <option value="tour_manager">Tour Manager</option>
-                  <option value="admin">Admin</option>
-                </select>
+                <Form.Group controlId="formFile">
+                  <Form.Control
+                    onChange={(e) => {
+                      setPhoto(e.target.value);
+                    }}
+                    type="file"
+                  />
+                </Form.Group>
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextEmail"
+            >
+              <Col sm={3}>
+                <Form.Label>Name:</Form.Label>
+              </Col>
+              <Col sm={8}>
+                <Form.Control
+                  type="text"
+                  className="form-control"
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formPlaintextEmail"
+            >
+              <Col sm={3}>
+                <Form.Label>Description:</Form.Label>
+              </Col>
+              <Col sm={8}>
+                <Form.Control
+                  type="text"
+                  className="form-control"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
               </Col>
             </Form.Group>
           </Modal.Body>

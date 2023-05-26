@@ -175,20 +175,6 @@ export default function Register() {
                   }
                 ></input>
               </div>
-              <div className="form-group col-md-12">
-                <label for="inputPassword4">Select Role</label>
-                <select
-                  className="form-select"
-                  onChange={(e) =>
-                    setFormData({ ...formData, role: e.target.value })
-                  }
-                  value={formData.role}
-                >
-                  <option value="user">User</option>
-                  <option value="hotel_manager">Hotel Manager</option>
-                  <option value="tour_manager">Tour Manager</option>
-                </select>
-              </div>
             </div>
           </form>
         </Modal.Body>

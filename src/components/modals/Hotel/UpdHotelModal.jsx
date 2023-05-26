@@ -5,6 +5,7 @@ import { Col, Row, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { LoadingOverlay } from "@mantine/core";
+import  requestConfigJson from "../../../context/ConfigJson";
 
 export default function UpdHotelModal(props) {
   const [show, setShow] = useState(false);
@@ -46,7 +47,7 @@ export default function UpdHotelModal(props) {
   function submitForm(e) {
     e.preventDefault();
     axios
-      .put("http://localhost:4000/api/v1/hotel/update/" + props.hsid, HotData)
+      .put("http://localhost:4000/api/v1/hotel/update/" + props.hsid, HotData,requestConfigJson)
       .then(function (response) {
         setName("");
         setDescription("");

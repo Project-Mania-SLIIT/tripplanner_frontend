@@ -5,6 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import AddPlaceModal from "../../../components/modals/Place/addPlaceModal";
 import UpdatePlaceModal from "../../../components/modals/Place/updatePlaceModal";
+import requestConfigJson from "../../../context/ConfigJson";
 
 export default function Index() {
   const [blog, setBlog] = useState([]);
@@ -22,7 +23,7 @@ export default function Index() {
 
   function handledelete(id) {
     axios
-      .delete("http://localhost:4000/api/v1/blog/" + id)
+      .delete("http://localhost:4000/api/v1/blog/" + id,requestConfigJson)
       .then(function (response) {
         Swal.fire({
           title: "Success!",

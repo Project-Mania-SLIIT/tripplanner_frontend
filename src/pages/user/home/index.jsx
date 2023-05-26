@@ -101,19 +101,17 @@ export default function Home() {
       </div>
       <div>
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
-        {tour.map((tour) => (
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage src={tour.photo} alt="..." position="top" />
-              <MDBCardBody>
-                <MDBCardTitle>{tour.title}</MDBCardTitle>
-                <MDBCardText>
-                 {tour.desc}
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        ))}
+          {tour.map((tour) => (
+            <MDBCol>
+              <MDBCard className="h-100">
+                <MDBCardImage src={tour.photo} alt="..." position="top" />
+                <MDBCardBody>
+                  <MDBCardTitle>{tour.title}</MDBCardTitle>
+                  <MDBCardText>{tour.desc}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
         </MDBRow>
       </div>
 

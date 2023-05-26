@@ -7,6 +7,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import Swal from "sweetalert2";
 import { LoadingOverlay } from "@mantine/core";
+import  requestConfigJson from "../../../context/ConfigJson";
 
 export default function AddHotelModal() {
   const [show, setShow] = useState(false);
@@ -44,7 +45,7 @@ export default function AddHotelModal() {
     } else {
       console.log(HotData);
       axios
-        .post("http://localhost:4000/api/v1/hotel/", HotData)
+        .post("http://localhost:4000/api/v1/hotel/", HotData,requestConfigJson)
         .then(function (res) {
           // alert("Added Successfully");
           console.log(res);

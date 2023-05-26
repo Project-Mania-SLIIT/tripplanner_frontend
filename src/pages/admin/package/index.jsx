@@ -6,6 +6,7 @@ import UpdUserModal from "../../../components/modals/User/UpdUserModal";
 import Swal from "sweetalert2";
 import AddTourModal from "../../../components/modals/Tour/addTourModal";
 import UpdateTourModal from "../../../components/modals/Tour/updateTourModal";
+import requestConfigJson from "../../../context/ConfigJson";
 
 export default function Index() {
   const [tour, setTour] = useState([]);
@@ -23,7 +24,7 @@ export default function Index() {
 
   function handledelete(id) {
     axios
-      .delete("http://localhost:4000/api/v1/tours/" + id)
+      .delete("http://localhost:4000/api/v1/tours/" + id, requestConfigJson)
       .then(function (response) {
         Swal.fire({
           title: "Success!",

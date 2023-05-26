@@ -37,6 +37,7 @@ export default function Login() {
       await axios
         .post("http://localhost:4000/api/v1/auth/login", formData)
         .then((res) => {
+          console.log(res.data.data);
           localStorage.setItem("_id", res.data.data._id);
           localStorage.setItem("username", res.data.data.username);
           localStorage.setItem("email", res.data.data.email);

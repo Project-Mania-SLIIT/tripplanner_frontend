@@ -4,9 +4,11 @@ import Modal from "react-bootstrap/Modal";
 import { Col, Row, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { LoadingOverlay } from "@mantine/core";
 
 export default function UpdHotelModal(props) {
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [hotel, setHotel] = useState("");
   const [name, setName] = useState("");
@@ -64,7 +66,44 @@ export default function UpdHotelModal(props) {
         console.log(error);
       });
   }
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    try {
+      const file = e.target.files[0];
 
+      if (!file) return alert("File not exist.");
+
+      if (file.size > 1024 * 1024)
+        // 1mb
+        return alert("Size too large!");
+
+      if (file.type !== "image/jpeg" && file.type !== "image/png")
+        // 1mb
+        return alert("File format is incorrect.");
+
+      let formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "carengo");
+      formData.append("cloud_name", "itp2022");
+
+      setLoading(true);
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/itp2022/image/upload",
+        formData,
+        {
+          method: "post",
+          body: formData,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      );
+      await setImage(res.data.url);
+      setLoading(false);
+    } catch (err) {
+      console.log(err.response.data.msg);
+    }
+  };
   const handleClose = () => setShow(false);
 
   return (
@@ -74,6 +113,7 @@ export default function UpdHotelModal(props) {
       </Button>
 
       <Modal show={show} size="lg" centered>
+        <LoadingOverlay visible={loading} overlayBlur={2} />
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
             Update Hotel
@@ -92,12 +132,7 @@ export default function UpdHotelModal(props) {
               </Col>
               <Col sm={8}>
                 <Form.Group controlId="formFile">
-                  <Form.Control
-                    onChange={(e) => {
-                      setImage(e.target.value);
-                    }}
-                    type="file"
-                  />
+                  <Form.Control onChange={handleImageChange} type="file" />
                 </Form.Group>
               </Col>
             </Form.Group>

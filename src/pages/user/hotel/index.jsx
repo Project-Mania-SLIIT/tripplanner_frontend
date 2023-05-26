@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
-import taj from "../../../assets/images/taj.jpg";
 
 const hotel = () => {
 

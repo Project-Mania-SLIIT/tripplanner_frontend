@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
-import ninearch from "../../../assets/images/ninearch.jpg";
 
 const packages = () => {
 

@@ -62,7 +62,7 @@ export default function UpdUserModal(props) {
       }
 
       const handleClose = () => setShow(false);
-      const handleShow = () => setShow(true);
+
   
 
   return (

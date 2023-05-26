@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import Sidenav from "../../../components/admin/sidenav";
 import { Button, Table } from "react-bootstrap";
 import axios from "axios";
-import UpdUserModal from "../../../components/modals/User/UpdUserModal";
 import Swal from "sweetalert2";
 import AddHotelModal from "../../../components/modals/Hotel/AddHotelModal";
+import UpdHotelModal from "../../../components/modals/Hotel/UpdHotelModal";
 
 export default function Index() {
   const [hotel, setHotel] = useState([]);
@@ -21,6 +21,22 @@ export default function Index() {
         console.log(err);
       });
   }, []);
+
+  function handledelete(id) {
+    axios
+      .delete("http://localhost:4000/api/v1/hotel/" + id)
+      .then(function (response) {
+        Swal.fire({
+            title: "Success!",
+            text: "Review Deleted Successfully",
+            icon: "success",
+        })
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return (
     <div>
@@ -58,7 +74,9 @@ export default function Index() {
                 </td>
                 <td>{ht.city}</td>
                 <td>{ht.roomCount}</td>
-                <td></td>
+                <td><UpdHotelModal hsid={ht._id}/>
+                    <Button className="btn btn-danger ms-1" onClick={() => {handledelete(ht._id);
+                  }}>Delete</Button></td>
               </tr>
             ))}
           </tbody>

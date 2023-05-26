@@ -111,18 +111,19 @@ const Navbar = () => {
                         Logout
                       </button>
                     </li>
-                    {localStorage.getItem("role") === "admin" ? (
-                      <li>
-                        <button
-                          className="dropdown-item"
-                          onClick={() => {
-                            window.location = "/admin";
-                          }}
-                        >
-                          Admin Page
-                        </button>
-                      </li>
-                    ) : null}
+                    {localStorage.getItem("role") !==
+                      "user"?(
+                        <li>
+                          <button
+                            className="dropdown-item"
+                            onClick={() => {
+                              window.location = "/admin";
+                            }}
+                          >
+                            Admin Page
+                          </button>
+                        </li>
+                      ):null}
                   </ul>
                 </div>
               </>

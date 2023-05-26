@@ -12,10 +12,10 @@ export default function Index() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/hotel/")
+      .get("http://localhost:4000/api/v1/hotel")
       .then((res) => {
-        console.log(res);
-          setHotel(res.data);
+        console.log(res.data);
+        setHotel(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -27,16 +27,18 @@ export default function Index() {
       .delete("http://localhost:4000/api/v1/hotel/" + id)
       .then(function (response) {
         Swal.fire({
-            title: "Success!",
-            text: "Review Deleted Successfully",
-            icon: "success",
-        })
+          title: "Success!",
+          text: "Review Deleted Successfully",
+          icon: "success",
+        });
         window.location.reload();
       })
       .catch(function (error) {
         console.log(error);
       });
   }
+
+  
 
   return (
     <div>
@@ -74,9 +76,17 @@ export default function Index() {
                 </td>
                 <td>{ht.city}</td>
                 <td>{ht.roomCount}</td>
-                <td><UpdHotelModal hsid={ht._id}/>
-                    <Button className="btn btn-danger ms-1" onClick={() => {handledelete(ht._id);
-                  }}>Delete</Button></td>
+                <td>
+                  <UpdHotelModal hsid={ht._id} />
+                  <Button
+                    className="btn btn-danger ms-1"
+                    onClick={() => {
+                      handledelete(ht._id);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </td>
               </tr>
             ))}
           </tbody>

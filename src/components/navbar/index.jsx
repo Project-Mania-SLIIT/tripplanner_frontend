@@ -107,8 +107,8 @@ const Navbar = () => {
                         Logout
                       </button>
                     </li>
-                    {localStorage.getItem("role") ===
-                      "admin"?(
+                    {localStorage.getItem("role") !==
+                      "user"?(
                         <li>
                           <button
                             className="dropdown-item"

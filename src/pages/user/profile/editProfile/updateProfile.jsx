@@ -5,34 +5,29 @@ import { Col, Row, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function UpdHotelModal(props) {
+export default function UpdateProfile(props) {
   const [show, setShow] = useState(false);
 
-  const [hotel, setHotel] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [city, setCity] = useState("");
-  const [roomCount, setRoomcount] = useState("");
-  const [image, setImage] = useState("");
+  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [photo, setPhoto] = useState("");
 
-  const HotData = {
-    name,
-    description,
-    city,
-    roomCount,
-    image,
-    // revid,
+  const UserData = {
+    email,
+    photo,
+    username,
   };
+
   const UpdateShow = () => {
-    setHotel(props.hsid);
+    console.log(props.usid);
+    setUser(props.usid);
     axios
-      .get("http://localhost:4000/api/v1/hotel/single/" + props.hsid)
+      .get("http://localhost:4000/api/v1/users/" + props.usid)
       .then(function (response) {
-        setName(response.data["name"]);
-        setDescription(response.data["description"]);
-        setCity(response.data["city"]);
-        setRoomcount(response.data["roomCount"]);
-        setImage(response.data["image"]);
+        setUsername(response.data.data["username"]);
+        setEmail(response.data.data["email"]);
+        setPhoto(response.data.data["photo"]);
         setShow(true);
       })
       .catch(function (error) {
@@ -44,24 +39,23 @@ export default function UpdHotelModal(props) {
   function submitForm(e) {
     e.preventDefault();
     axios
-      .put("http://localhost:4000/api/v1/hotel/update/" + props.hsid, HotData)
+      .put("http://localhost:4000/api/v1/users/update/" + props.usid, UserData)
       .then(function (response) {
-        setName("");
-        setDescription("");
-        setCity("");
-        setRoomcount("");
-        setImage("");
+        setUsername("");
+        setEmail("");
+        setPhoto("");
         setShow(false);
         Swal.fire({
           title: "Success!",
           text: "User updated Successfully",
           icon: "success",
-        }).then(function () {
+          confirmButtonText: "Ok",
+        }).then(() => {
           window.location.reload();
         });
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error); 
       });
   }
 
@@ -70,18 +64,18 @@ export default function UpdHotelModal(props) {
   return (
     <>
       <Button className="btn btn-success ms-1" onClick={UpdateShow}>
-        Edit
+        Update Details
       </Button>
 
       <Modal show={show} size="lg" centered>
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            Update Hotel
+            Update User
           </Modal.Title>
         </Modal.Header>
 
         <Form>
-          <Modal.Body>
+        <Modal.Body>
             <Form.Group
               as={Row}
               className="mb-3"
@@ -94,7 +88,7 @@ export default function UpdHotelModal(props) {
                 <Form.Group controlId="formFile">
                   <Form.Control
                     onChange={(e) => {
-                      setImage(e.target.value);
+                      setPhoto(e.target.value);
                     }}
                     type="file"
                   />
@@ -113,9 +107,9 @@ export default function UpdHotelModal(props) {
                 <Form.Control
                   type="text"
                   className="form-control"
-                  value={name}
+                  value={username}
                   onChange={(e) => {
-                    setName(e.target.value);
+                    setUsername(e.target.value);
                   }}
                 />
               </Col>
@@ -132,47 +126,9 @@ export default function UpdHotelModal(props) {
                 <Form.Control
                   type="text"
                   className="form-control"
-                  value={description}
+                  value={email}
                   onChange={(e) => {
-                    setDescription(e.target.value);
-                  }}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextEmail"
-            >
-              <Col sm={3}>
-                <Form.Label>Roomcount:</Form.Label>
-              </Col>
-              <Col sm={8}>
-                <Form.Control
-                  type="text"
-                  className="form-control"
-                  value={roomCount}
-                  onChange={(e) => {
-                    setRoomcount(e.target.value);
-                  }}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextEmail"
-            >
-              <Col sm={3}>
-                <Form.Label>City:</Form.Label>
-              </Col>
-              <Col sm={8}>
-                <Form.Control
-                  type="text"
-                  className="form-control"
-                  value={city}
-                  onChange={(e) => {
-                    setCity(e.target.value);
+                    setEmail(e.target.value);
                   }}
                 />
               </Col>

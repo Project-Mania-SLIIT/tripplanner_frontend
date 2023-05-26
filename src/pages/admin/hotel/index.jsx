@@ -14,7 +14,6 @@ export default function Index() {
     axios
       .get("http://localhost:4000/api/v1/hotel")
       .then((res) => {
-        console.log(res.data);
         setHotel(res.data);
       })
       .catch((err) => {
@@ -30,15 +29,14 @@ export default function Index() {
           title: "Success!",
           text: "Review Deleted Successfully",
           icon: "success",
+        }).then(function (response) {
+          window.location.reload();
         });
-        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);
       });
   }
-
-  
 
   return (
     <div>
@@ -67,6 +65,7 @@ export default function Index() {
               <tr key={ht._id}>
                 <td>{ht.name}</td>
                 <td>{ht.description}</td>
+                <td>{ht.city}</td>
                 <td>
                   <img
                     src={ht.image}
@@ -74,7 +73,6 @@ export default function Index() {
                     alt="pic"
                   />
                 </td>
-                <td>{ht.city}</td>
                 <td>{ht.roomCount}</td>
                 <td>
                   <UpdHotelModal hsid={ht._id} />

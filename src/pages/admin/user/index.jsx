@@ -28,8 +28,9 @@ export default function index() {
           title: "Success!",
           text: "Review Deleted Successfully",
           icon: "success",
+        }).then(function (response) {
+          window.location.reload();
         });
-        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);

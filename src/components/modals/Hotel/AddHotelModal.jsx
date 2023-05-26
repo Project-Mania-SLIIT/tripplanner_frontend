@@ -16,7 +16,7 @@ export default function AddHotelModal() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("");
-  const [roomcount, setRoomcount] = useState("");
+  const [roomCount, setRoomcount] = useState("");
   const [image, setImage] = useState("");
   const [revid, setRevid] = useState("");
 
@@ -25,7 +25,7 @@ export default function AddHotelModal() {
     name,
     description,
     city,
-    roomcount,
+    roomCount,
     image,
     // revid,
   };
@@ -37,7 +37,7 @@ export default function AddHotelModal() {
       name.length === 0 ||
       description.length === 0 ||
       city.length === 0 ||
-      roomcount.length === 0
+      roomCount.length === 0
       // ||  image.length === 0
     ) {
       swal(" Fields Cannot be empty !", "Please enter all data !", "error");

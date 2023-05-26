@@ -16,6 +16,7 @@ export default function UpdUserModal(props) {
 
   const UserData = {
     role,
+    
   };
 
   const UpdateShow = () => {
@@ -52,6 +53,7 @@ export default function UpdUserModal(props) {
           icon: "success",
           confirmButtonText: "Ok",
         }).then(() => {
+          localStorage.setItem("role", role);
           window.location.reload();
         });
       })

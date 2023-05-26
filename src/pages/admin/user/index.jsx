@@ -13,7 +13,6 @@ export default function index() {
     axios
       .get(`http://localhost:4000/api/v1/users/`)
       .then((res) => {
-        console.log(res);
         setUser(res.data.data);
       })
       .catch((err) => {

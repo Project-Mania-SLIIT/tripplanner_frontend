@@ -15,11 +15,7 @@ export default function Index() {
       .get("http://localhost:4000/api/v1/hotel/")
       .then((res) => {
         console.log(res);
-        if (Array.isArray(res.data.data)) {
-          setHotel(res.data.data);
-        } else {
-          console.log("Invalid data format received from API");
-        }
+          setHotel(res.data);
       })
       .catch((err) => {
         console.log(err);

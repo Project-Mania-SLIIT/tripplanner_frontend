@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
@@ -8,68 +8,74 @@ import swal from "sweetalert";
 import Swal from "sweetalert2";
 
 export default function UpdFeedbackModal(props) {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const [feedbackId, setFeedbackId] = useState("");
-    const [rating, setRating] = useState("");
-    const [reviewText, setReviewText] = useState("");
+  const [feedbackId, setFeedbackId] = useState("");
+  const [rating, setRating] = useState("");
+  const [reviewText, setReviewText] = useState("");
 
-    const FbData = {
-        rating,
-        reviewText,
-    };
+  const FbData = {
+    rating,
+    reviewText,
+  };
 
-    const UpdateShow = () => {
-        console.log(props.fbid);
-        setFeedbackId(props.fbid);
-        axios
-          .get("http://localhost:4000/api/v1/review/getone/" + props.fbid)
-          .then(function (response) {
-            setRating(response.data["rating"]);
-            setReviewText(response.data["reviewText"]);
-            setShow(true);
-          })
-          .catch(function (error) {
-            console.log(error);
-            alert("invalid");
-          });
-      };
+  const UpdateShow = () => {
+    console.log(props.fbid);
+    setFeedbackId(props.fbid);
+    axios
+      .get(
+        "https://tripplanner.up.railway.app/api/v1/review/getone/" + props.fbid
+      )
+      .then(function (response) {
+        setRating(response.data["rating"]);
+        setReviewText(response.data["reviewText"]);
+        setShow(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert("invalid");
+      });
+  };
 
-      function submitForm(e) {
-        e.preventDefault();
-        axios
-          .put("http://localhost:4000/api/v1/review/update/" + props.fbid, FbData)
-          .then(function (response) {
-            setRating("");
-            setReviewText("");
-            setShow(false);
-            Swal.fire({
-                title: "Success!",
-                text: "Review updated Successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
-            })
-            .then(function () {
-                window.location.reload();
-              });
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
+  function submitForm(e) {
+    e.preventDefault();
+    axios
+      .put(
+        "https://tripplanner.up.railway.app/api/v1/review/update/" + props.fbid,
+        FbData
+      )
+      .then(function (response) {
+        setRating("");
+        setReviewText("");
+        setShow(false);
+        Swal.fire({
+          title: "Success!",
+          text: "Review updated Successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        }).then(function () {
+          window.location.reload();
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
-        <Button className="btn btn-success ms-1" onClick={UpdateShow}>
+      <Button className="btn btn-success ms-1" onClick={UpdateShow}>
         Edit
       </Button>
 
       <Modal show={show} size="lg" centered>
         <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">Update Review</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Update Review
+          </Modal.Title>
         </Modal.Header>
 
         <Form>
@@ -125,5 +131,5 @@ export default function UpdFeedbackModal(props) {
         </Form>
       </Modal>
     </>
-  )
+  );
 }

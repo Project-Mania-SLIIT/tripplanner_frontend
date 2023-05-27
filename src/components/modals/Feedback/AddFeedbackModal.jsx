@@ -1,68 +1,64 @@
-import React from 'react'
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { Col, Row, Form } from "react-bootstrap";
 import axios from "axios";
 import swal from "sweetalert";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 export default function AddFeedbackModal(props) {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const userId = localStorage.getItem("_id");
-    const username = localStorage.getItem("username");
-    const hotelId = props.hotid;
-    const hotelName = props.hotname;
-    const hotelImage = props.hotimage;
-  
-    const [rating, setRating] = useState("");
-    const [reviewText, setReviewText] = useState("");
+  const userId = localStorage.getItem("_id");
+  const username = localStorage.getItem("username");
+  const hotelId = props.hotid;
+  const hotelName = props.hotname;
+  const hotelImage = props.hotimage;
 
-    const FbData = {
-      userId,
-      username,
-      hotelId,
-      hotelName,
-      hotelImage,
-      rating,
-      reviewText,
-    };
+  const [rating, setRating] = useState("");
+  const [reviewText, setReviewText] = useState("");
 
-    function handleSubmit(e) {
-        e.preventDefault();
-    
-        if (
-            rating.length === 0 ||
-            reviewText.length === 0
-        ) {
-          swal(" Fields Cannot be empty !", "Please enter all data !", "error");
-        } else {
-          console.log(FbData);
-          axios
-            .post("http://localhost:4000/api/v1/review/add", FbData)
-            .then(function (res) {
-              // alert("Added Successfully");
-              console.log(res);
-              setRating("");
-              setReviewText("");
-              Swal.fire({
-                title: "Success!",
-                text: "Review added Successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
-              })
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        }
-      }
-    
+  const FbData = {
+    userId,
+    username,
+    hotelId,
+    hotelName,
+    hotelImage,
+    rating,
+    reviewText,
+  };
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (rating.length === 0 || reviewText.length === 0) {
+      swal(" Fields Cannot be empty !", "Please enter all data !", "error");
+    } else {
+      console.log(FbData);
+      axios
+        .post("https://tripplanner.up.railway.app/api/v1/review/add", FbData)
+        .then(function (res) {
+          // alert("Added Successfully");
+          console.log(res);
+          setRating("");
+          setReviewText("");
+          Swal.fire({
+            title: "Success!",
+            text: "Review added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <Button className="btn btn-dark ms-1" onClick={handleShow}>
@@ -72,7 +68,9 @@ export default function AddFeedbackModal(props) {
 
       <Modal show={show} size="lg" centered>
         <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">Leave a Review</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Leave a Review
+          </Modal.Title>
         </Modal.Header>
 
         <Form onSubmit={handleSubmit}>

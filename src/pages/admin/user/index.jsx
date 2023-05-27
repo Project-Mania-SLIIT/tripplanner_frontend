@@ -11,7 +11,7 @@ export default function index() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/users/`)
+      .get(`https://tripplanner.up.railway.app/api/v1/users/`)
       .then((res) => {
         setUser(res.data.data);
       })
@@ -22,7 +22,7 @@ export default function index() {
 
   function handledelete(id) {
     axios
-      .delete("http://localhost:4000/api/v1/users/" + id)
+      .delete("https://tripplanner.up.railway.app/api/v1/users/" + id)
       .then(function (response) {
         Swal.fire({
           title: "Success!",

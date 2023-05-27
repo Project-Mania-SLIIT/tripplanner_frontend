@@ -6,13 +6,14 @@ import UpdUserModal from "../../../components/modals/User/UpdUserModal";
 import Swal from "sweetalert2";
 import AddTourModal from "../../../components/modals/Tour/addTourModal";
 import UpdateTourModal from "../../../components/modals/Tour/updateTourModal";
+import requestConfigJson from "../../../context/ConfigJson";
 
 export default function Index() {
   const [tour, setTour] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/tours")
+      .get("https://tripplanner.up.railway.app/api/v1/tours")
       .then((res) => {
         setTour(res.data.data);
       })
@@ -23,7 +24,10 @@ export default function Index() {
 
   function handledelete(id) {
     axios
-      .delete("http://localhost:4000/api/v1/tours/" + id)
+      .delete(
+        "https://tripplanner.up.railway.app/api/v1/tours/" + id,
+        requestConfigJson
+      )
       .then(function (response) {
         Swal.fire({
           title: "Success!",
@@ -79,26 +83,26 @@ export default function Index() {
                 <td>{tour.pricePerHead}</td>
                 <td>{tour.maxGroupSize}</td>
                 <td>{tour.modeOfTransport}</td>
-                  <td>
-                    <UpdateTourModal
-                      id={tour._id}
-                      title={tour.title}
-                      desc={tour.desc}
-                      city={tour.city}
-                      pricePerHead={tour.pricePerHead}
-                      maxGroupSize={tour.maxGroupSize}
-                      modeOfTransport={tour.modeOfTransport}
-                      photo={tour.photo}
-                    />
-                    <Button
-                      className="btn btn-danger ms-1"
-                      onClick={() => {
-                        handledelete(tour._id);
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </td>
+                <td>
+                  <UpdateTourModal
+                    id={tour._id}
+                    title={tour.title}
+                    desc={tour.desc}
+                    city={tour.city}
+                    pricePerHead={tour.pricePerHead}
+                    maxGroupSize={tour.maxGroupSize}
+                    modeOfTransport={tour.modeOfTransport}
+                    photo={tour.photo}
+                  />
+                  <Button
+                    className="btn btn-danger ms-1"
+                    onClick={() => {
+                      handledelete(tour._id);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </td>
               </tr>
             ))}
           </tbody>

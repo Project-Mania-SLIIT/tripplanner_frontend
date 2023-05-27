@@ -35,7 +35,7 @@ export default function Login() {
     e.preventDefault();
     if (validate()) {
       await axios
-        .post("http://localhost:4000/api/v1/auth/login", formData)
+        .post("https://tripplanner.up.railway.app/api/v1/auth/login", formData)
         .then((res) => {
           console.log(res.data.data);
           localStorage.setItem("_id", res.data.data._id);

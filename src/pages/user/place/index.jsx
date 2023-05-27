@@ -10,12 +10,11 @@ import Footer from "../../../components/footer";
 import sigiriya from "../../../assets/images/sigiriya.jpg";
 
 const place = () => {
-
   const [blog, setBlog] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/blog")
+      .get("https://tripplanner.up.railway.app/api/v1/blog")
       .then((res) => {
         setBlog(res.data);
       })
@@ -23,7 +22,6 @@ const place = () => {
         console.log(err);
       });
   }, []);
-
 
   return (
     <div>
@@ -52,60 +50,42 @@ const place = () => {
               <div
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent2"
-              >
-                <form className="w-auto py-1" style={{ maxWidth: "12rem" }}>
-                  <input
-                    type="search"
-                    className="form-control rounded-0"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                </form>
-              </div>
+              ></div>
             </div>
           </nav>
           <section>
             <div className="text-center">
               <div className="row">
-              {blog.map((bl) => (
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img alt="" src={bl.image} className="w-100" />
-                      <a href={"placesingle/" + bl._id}>
-                        {/* <div className="mask">
-                          <div className="d-flex justify-content-start align-items-end h-100">
-                            <h5>
-                              <span className="badge bg-dark ms-2">NEW</span>
-                            </h5>
+                {blog.map((bl) => (
+                  <div className="col-lg-3 col-md-6 mb-4">
+                    <div className="card">
+                      <div
+                        className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                        data-mdb-ripple-color="light"
+                      >
+                        <img alt="" src={bl.image} className="w-100" />
+                        <a href={"placesingle/" + bl._id}>
+                          <div className="hover-overlay">
+                            <div
+                              className="mask"
+                              style={{
+                                backgroundColor: "rgba(251, 251, 251, 0.15)",
+                              }}
+                            />
                           </div>
-                        </div> */}
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">
-                          {bl.title}
-                        </h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>{bl.city}</p>
-                      </a>
-                      <h6 className="mb-3 price">Click Here For More Info</h6>
+                        </a>
+                      </div>
+                      <div className="card-body">
+                        <a href className="text-reset">
+                          <h5 className="card-title mb-2">{bl.title}</h5>
+                        </a>
+                        <a href className="text-reset ">
+                          <p>{bl.city}</p>
+                        </a>
+                        <h6 className="mb-3 price">Click Here For More Info</h6>
+                      </div>
                     </div>
                   </div>
-                </div>
                 ))}
               </div>
             </div>

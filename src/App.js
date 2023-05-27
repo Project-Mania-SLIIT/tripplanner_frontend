@@ -27,6 +27,7 @@ function App() {
           <Route exact path="/admin" element={<DashboardContent />}>
           </Route>
           <Route exact path="/">
+          <Route exact path="" element={<Home />} />
             <Route exact path="home" element={<Home />} />
           </Route>
           <Route exact path="/hoteladmin" element={<Hoteladmin />}/>

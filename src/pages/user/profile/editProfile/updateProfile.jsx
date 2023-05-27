@@ -50,7 +50,7 @@ export default function UpdateProfile(props) {
         setShow(false);
         Swal.fire({
           title: "Success!",
-          text: "User updated Successfully",
+          text: "Account updated Successfully",
           icon: "success",
           confirmButtonText: "Ok",
         }).then(() => {

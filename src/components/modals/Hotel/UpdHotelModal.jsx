@@ -63,7 +63,7 @@ export default function UpdHotelModal(props) {
         setShow(false);
         Swal.fire({
           title: "Success!",
-          text: "User updated Successfully",
+          text: "Hotel updated Successfully",
           icon: "success",
         }).then(function () {
           window.location.reload();
@@ -225,7 +225,7 @@ export default function UpdHotelModal(props) {
               Exit
             </Button>
             <Button variant="primary" type="submit" onClick={submitForm}>
-              Update User
+              Submit
             </Button>
           </Modal.Footer>
         </Form>

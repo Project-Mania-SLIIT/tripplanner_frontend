@@ -26,7 +26,7 @@ export default function index() {
       .then(function (response) {
         Swal.fire({
           title: "Success!",
-          text: "Review Deleted Successfully",
+          text: "User Deleted Successfully",
           icon: "success",
         }).then(function (response) {
           window.location.reload();

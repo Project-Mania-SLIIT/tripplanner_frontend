@@ -31,7 +31,7 @@ export default function Index() {
       .then(function (response) {
         Swal.fire({
           title: "Success!",
-          text: "Review Deleted Successfully",
+          text: "Hotel Deleted Successfully",
           icon: "success",
         }).then(function (response) {
           window.location.reload();
